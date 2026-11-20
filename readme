@@ -1,0 +1,45 @@
+Student Academic Performance Analysis
+
+Exploratory data analysis and machine learning project on the UCI Student Performance dataset, applying regression, classification, and clustering to support early academic intervention.
+
+Overview
+
+This project analyzes 395 students' academic and behavioral records to:
+
+Predict final grades (G3) using regression models
+Classify students as at-risk of delayed graduation for early intervention
+Segment students into behavioral profiles using unsupervised clustering
+Dataset
+Source: UCI Machine Learning Repository — Student Performance
+File used: student-mat.csv (Mathematics course)
+Size: 395 students, 33 features (demographics, family background, study habits, grades)
+Methods
+Task	Techniques
+Regression	Linear Regression, Decision Tree, Random Forest (tuned via GridSearchCV)
+Classification	Logistic Regression, Decision Tree, Random Forest (class-weighted, tuned via RandomizedSearchCV)
+Clustering	PCA, K-Means, Gaussian Mixture Model
+Interpretation	SHAP values, feature importance, Mann-Whitney U / chi-square tests
+Key Findings
+Prior failures and absenteeism were the strongest, most consistent predictors of academic risk across every method tested — confirmed independently through bivariate analysis, feature selection, statistical testing, and SHAP interpretation.
+The tuned Random Forest regressor achieved R² = 0.243 predicting final grades from behavioral/demographic data alone (deliberately excluding prior grades G1/G2 to keep the model a genuine early-warning tool).
+The tuned classifier achieved 0.53 recall on identifying at-risk students, prioritizing catching struggling students over raw accuracy.
+K-Means clustering (k=3) revealed three distinct student segments: High-Achieving/Disciplined, Socially Active/Low Effort, and At-Risk/Attendance-Logistics — each mapped to a different advising intervention.
+Repository Contents
+student_performance_eda.ipynb — full analysis notebook
+requirements.txt — Python dependencies
+README.md — this file
+Tech Stack
+
+Python · pandas · scikit-learn · matplotlib · seaborn · SHAP · SciPy
+
+How to Run
+bash
+pip install -r requirements.txt
+jupyter notebook student_performance_eda.ipynb
+
+Or open directly in Google Colab using the badge/link in the notebook.
+
+Author
+
+Usman Umair — Data Science, 
+UPN Veteran" Jawa Timur
